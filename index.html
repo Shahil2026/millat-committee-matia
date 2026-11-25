@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Millat Committee Moti Nagar Matia</title>
+<meta name="theme-color" content="#0b3d2e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="config.js"></script>
+</head>
+<body>
+
+<div id="setupNotice" class="setup-notice hidden">
+  ⚠️ <b>Server setup baki hai</b> — ye app abhi DEMO mode me chal raha hai.
+  Data sirf isi device me save hoga. Asli server jodne ke liye README dekhein.
+</div>
+
+<header class="app-header">
+  <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+  <div class="ornament"><i></i></div>
+  <div class="header-main">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="52" height="52"><g fill="none" stroke="#d4af37" stroke-width="2.4"><path d="M32 6 C38 14 44 18 44 28 L20 28 C20 18 26 14 32 6 Z" fill="#0e5a41"/><rect x="18" y="28" width="28" height="24" fill="#0e5a41"/><rect x="28" y="38" width="8" height="14" fill="#d4af37" stroke="none"/><path d="M10 52 h44" /><path d="M12 20 v32 M52 20 v32 M12 20 c0-5 3-8 3-12 M52 20 c0-5-3-8-3-12" /></g></svg>
+    </div>
+    <div>
+      <h1 id="committeeName">Millat Committee Moti Nagar Matia</h1>
+      <div class="name-ar">ملّت کمیٹی — موٹی نگر، ماتیا</div>
+      <p id="committeeAddress" class="addr">Vill- Matia, Po- Matia, Ps- Laxmipur, Dist- Jamui, BR 811312</p>
+    </div>
+  </div>
+  <div class="ayah">إِنَّمَا يَعْمُرُ مَسَاجِدَ اللَّهِ مَنْ آمَنَ بِاللَّهِ وَالْيَوْمِ الْآخِرِ <span class="ayah-ref">(Surah At-Tawbah 9:18)</span></div>
+  <div class="header-clock" id="liveClock">🕐 --:--:--</div>
+</header>
+
+<main id="viewRoot"><!-- views render here --></main>
+
+<nav class="bottom-nav">
+  <button data-nav="home" class="active">🏠<span>Home</span></button>
+  <button data-nav="khata">📒<span>मेरा खाता</span></button>
+  <button data-nav="report">📊<span>Report</span></button>
+  <button data-nav="namaz">🕌<span>नमाज़ / ऐलान</span></button>
+  <button data-nav="sanchalak">👥<span>संचालक</span></button>
+  <button data-nav="committee" id="committeeBtn" class="nav-committee">🔒<span>Committee</span></button>
+</nav>
+
+<!-- PIN sheet -->
+<div id="pinSheet" class="sheet hidden">
+  <div class="sheet-card">
+    <h3>🔒 Committee Mode</h3>
+    <p class="muted">Committee ka PIN daalein</p>
+    <input id="pinInput" type="password" inputmode="numeric" maxlength="12" placeholder="PIN">
+    <div class="row">
+      <button class="btn ghost" id="pinCancel">Cancel</button>
+      <button class="btn primary" id="pinGo">Kholein</button>
+    </div>
+    <p id="pinError" class="error"></p>
+    <p style="margin-top:6px"><a href="#" id="forgotLink" style="color:#0e5a41;font-size:13.5px">PIN bhool gaye? Recovery code se reset karein</a></p>
+    <div id="resetBox" class="hidden">
+      <input id="rcCode" placeholder="Recovery Code (jaise XXXX-XXXX-XXXX)" style="text-transform:uppercase">
+      <input id="rcNewPin" type="password" inputmode="numeric" maxlength="12" placeholder="Naya PIN">
+      <button class="btn gold block" id="rcGo">PIN Reset karein</button>
+      <p id="rcMsg" class="error"></p>
+    </div>
+  </div>
+</div>
+
+<div id="modalRoot"></div>
+<div id="printArea"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

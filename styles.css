@@ -1,0 +1,170 @@
+:root{
+  --green:#0b3d2e; --green2:#0e5a41; --green3:#12805f;
+  --gold:#d4af37; --gold2:#b8912a; --goldsoft:#f3e5bb;
+  --mint:#e9f5ee; --card:#ffffff; --ink:#1d2b24; --muted:#5f7267;
+  --red:#b3261e; --shadow:0 3px 14px rgba(11,61,46,.13);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:"Hind","Noto Sans Devanagari","Noto Sans",system-ui,sans-serif;
+  background-color:var(--mint);
+  background-image:radial-gradient(rgba(14,90,65,.13) 1.2px, transparent 1.35px);
+  background-size:22px 22px;
+  color:var(--ink);
+  padding-bottom:86px;
+}
+.hidden{display:none!important}
+.muted{color:var(--muted)} .error{color:var(--red);min-height:1em}
+.setup-notice{background:#fff3cd;border-bottom:2px solid var(--gold);color:#664d03;
+  padding:10px 14px;font-size:14px;text-align:center}
+.ar-lbl{font-family:"Amiri",serif;color:var(--gold2);font-size:15px;font-weight:700;margin-left:6px}
+
+/* ---------- Header ---------- */
+.app-header{
+  position:relative;
+  background:linear-gradient(165deg,#0a3527 0%,var(--green) 45%,var(--green2) 100%);
+  color:#fff; padding:16px 16px 26px;
+  box-shadow:var(--shadow);
+}
+.bismillah{
+  font-family:"Amiri",serif;font-size:27px;text-align:center;line-height:1.8;
+  background:linear-gradient(180deg,#f7e08a,#d4af37 60%,#a87f1f);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 1px 1px rgba(0,0,0,.35));
+}
+.ornament{display:flex;align-items:center;gap:8px;max-width:340px;margin:2px auto 12px}
+.ornament::before,.ornament::after{content:"";flex:1;height:1.5px;
+  background:linear-gradient(90deg,transparent,var(--gold));border-radius:2px}
+.ornament::after{background:linear-gradient(90deg,var(--gold),transparent)}
+.ornament i{width:8px;height:8px;background:var(--gold);transform:rotate(45deg);display:block;
+  box-shadow:0 0 0 2px rgba(212,175,55,.25)}
+.header-main{display:flex;gap:13px;align-items:center}
+.logo{
+  flex:none;width:66px;height:66px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 35% 30%,#116149,#0a3527);
+  border:2px solid var(--gold);
+  box-shadow:0 0 0 3px rgba(212,175,55,.35), 0 0 0 5px rgba(212,175,55,.18), var(--shadow);
+  padding:7px;
+}
+.app-header h1{font-size:19.5px;margin:0;line-height:1.3;font-weight:700;letter-spacing:.2px}
+.name-ar{font-family:"Amiri",serif;font-size:16.5px;color:var(--goldsoft);margin-top:1px}
+.addr{margin:3px 0 0;font-size:12.5px;color:#d8e8de}
+.ayah{
+  font-family:"Amiri",serif;text-align:center;font-size:17.5px;line-height:2;
+  margin-top:13px;color:#ffe9a8;
+  border:1.5px solid var(--gold);outline:1.5px solid rgba(212,175,55,.45);outline-offset:3px;
+  border-radius:10px;padding:7px 10px;background:rgba(0,0,0,.16);
+}
+.ayah-ref{font-family:"Hind","Noto Sans Devanagari",sans-serif;font-size:11.5px;color:#cfe3d6}
+.app-header::after{
+  content:"";position:absolute;left:0;right:0;bottom:-1px;height:11px;
+  background-image:radial-gradient(circle at 10px 0px, var(--mint) 9px, transparent 10.5px);
+  background-size:20px 11px;background-repeat:repeat-x;
+}
+
+/* ---------- Layout / cards ---------- */
+main{max-width:640px;margin:0 auto;padding:14px 12px}
+.card{background:var(--card);border-radius:18px;box-shadow:var(--shadow);
+  padding:16px;margin-bottom:14px;border-top:3px solid var(--gold)}
+.card h2{margin:0 0 10px;font-size:17.5px;color:var(--green);font-weight:700}
+.card h3{margin:0 0 8px;font-size:15.5px;color:var(--green);font-weight:600}
+.balance-board{display:flex;gap:10px;text-align:center}
+.balance-board>div{flex:1;background:#eef7f1;border:1px solid #dcebe1;border-radius:12px;padding:10px 4px}
+.balance-board .amt{font-size:17.5px;font-weight:700;color:var(--green)}
+.balance-board .lbl{font-size:12px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{padding:7px 6px;border-bottom:1px solid #e6e2d2;text-align:left}
+th{color:var(--green);font-size:12.5px}
+td.num,th.num{text-align:right}
+.paid{color:var(--green3);font-weight:700}.due{color:var(--red);font-weight:700}
+.pill{display:inline-block;padding:2px 9px;border-radius:99px;font-size:12px;background:#eef6f1;color:var(--green)}
+.pill.pending{background:#fff3cd;color:#664d03}.pill.rejected{background:#fde8e6;color:var(--red)}
+
+/* ---------- Forms / buttons ---------- */
+input,select,textarea{
+  width:100%;padding:11px 12px;border:1.5px solid #cfd8d1;border-radius:10px;
+  font:inherit;font-size:15px;background:#fff;margin-bottom:10px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+.btn{border:none;border-radius:10px;padding:11px 16px;font:inherit;font-weight:700;cursor:pointer}
+.btn.primary{background:var(--green2);color:#fff}
+.btn.gold{background:linear-gradient(180deg,#e3c65c,var(--gold));color:#231a00}
+.btn.ghost{background:#e8ece9;color:var(--ink)}
+.btn.danger{background:var(--red);color:#fff}
+.btn.small{padding:7px 11px;font-size:13px}
+.btn.block{width:100%}
+.row{display:flex;gap:8px}.row>*{flex:1}
+.search-box{display:flex;gap:8px}
+.search-box input{margin:0}
+.search-box button{white-space:nowrap}
+
+/* nasihat banner */
+.nasihat{background:linear-gradient(150deg,#116149,#0a3527);color:#fff;border-radius:18px;
+  padding:16px;box-shadow:var(--shadow);margin-bottom:14px;
+  border:1.5px solid var(--gold);outline:1.5px solid rgba(212,175,55,.35);outline-offset:2px}
+.nasihat .ar{font-family:"Amiri",serif;font-size:20.5px;line-height:1.95;color:#ffe9a8;text-align:center}
+.nasihat .hi{text-align:center;margin-top:8px;font-size:14.5px}
+.nasihat .src{text-align:center;color:#cfe3d6;font-size:12px;margin-top:4px}
+.nasihat .tag{font-size:11.5px;letter-spacing:.6px;color:var(--gold);text-align:center;margin-bottom:6px;font-weight:600}
+
+/* ---------- Bottom nav / FAB ---------- */
+.bottom-nav{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:2px solid var(--gold);
+  display:flex;z-index:40;box-shadow:0 -2px 12px rgba(0,0,0,.08)}
+.bottom-nav button{flex:1;background:none;border:none;font:inherit;font-size:19px;padding:7px 0 9px;
+  color:var(--muted);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:1px}
+.bottom-nav button span{font-size:11.5px}
+.bottom-nav button.active{color:var(--green2);font-weight:700}
+.bottom-nav button.nav-committee{color:#8a6d00;font-weight:700}
+.bottom-nav button.nav-committee.active{color:#0e5a41}
+
+/* ---------- Sheets / modals ---------- */
+.sheet{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:60;display:flex;align-items:flex-end;justify-content:center}
+.sheet-card{background:#fff;width:100%;max-width:480px;border-radius:20px 20px 0 0;padding:20px;max-height:88vh;overflow:auto}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:70;display:flex;align-items:center;justify-content:center;padding:14px}
+.modal-card{background:#fff;border-radius:16px;padding:18px;width:100%;max-width:460px;max-height:88vh;overflow:auto}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.tabs button{border:1.5px solid var(--green2);background:#fff;color:var(--green2);border-radius:99px;
+  padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
+.tabs button.active{background:var(--green2);color:#fff}
+.list-item{display:flex;justify-content:space-between;gap:8px;padding:9px 0;border-bottom:1px solid #eee}
+.khata-head{text-align:center}
+.big-due{font-size:22px}
+
+/* ---------- Receipt ---------- */
+.receipt{
+  position:relative;overflow:hidden;background:#fffef9;border-radius:12px;padding:0 14px 14px;
+  border:2px solid var(--gold2);outline:1.5px solid rgba(212,175,55,.5);outline-offset:2.5px;
+}
+.receipt h3{
+  text-align:center;background:linear-gradient(160deg,var(--green),var(--green2));color:#ffe9a8;
+  margin:0 -14px 12px;padding:10px 8px;font-size:15.5px;border-bottom:2.5px solid var(--gold);
+}
+.receipt::after{
+  content:"तसदीक़शुदा";position:absolute;right:10px;bottom:12px;
+  font-weight:700;font-size:13.5px;color:var(--green2);
+  border:2px solid var(--green2);border-radius:6px;padding:2px 8px;
+  transform:rotate(-14deg);opacity:.55;pointer-events:none;
+}
+
+/* ---------- Print ---------- */
+#printArea{display:none}
+@media print{
+  body>*{display:none!important}
+  #printArea{display:block!important;color:#000;background:#fff}
+  #printArea .receipt::after{opacity:.6}
+  #printArea table{font-size:13px}
+}
+
+/* ---------- Advanced receipt ---------- */
+.receipt .rc-band{background:linear-gradient(135deg,#0e5a41,#083324);color:#fff;text-align:center;padding:14px 10px;margin:-14px -14px 6px}
+.receipt .rc-name{font-size:18px;font-weight:700}
+.receipt .rc-addr{font-size:11.5px;color:#cfe3d6}
+.receipt .rc-title{display:inline-block;margin-top:7px;background:var(--gold);color:#231a00;font-weight:700;padding:2px 14px;border-radius:999px;font-size:12.5px}
+.receipt .rc-row{display:flex;justify-content:space-between;gap:10px;padding:6px 2px;border-bottom:1px dashed #cfd8d2;font-size:13.5px}
+.receipt .rc-amt{text-align:center;font-size:30px;font-weight:800;color:var(--green2);padding:10px 0 0}
+.receipt .rc-words{text-align:center;font-size:12.5px;color:var(--muted);padding-bottom:6px}
+.receipt .rc-foot{text-align:center;font-size:11px;color:var(--muted)}
+
+/* ---------- Header clock ---------- */
+.header-clock{text-align:center;color:#ffe9a8;font-size:13.5px;font-weight:600;letter-spacing:.4px;padding:7px 8px 2px}
